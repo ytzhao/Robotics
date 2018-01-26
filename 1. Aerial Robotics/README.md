@@ -27,7 +27,7 @@ A quadrotor consists of 4 independently controlled rotors mounted on a rigid fra
 - **Mapping**: Have some basic capability to map its environment. If it does not know what the surrounding environment looks like, then it's incapable of reasoning about this environment and planning safe trajectories in this environment
 - **Planning**: Given a set of obstacles and given a destination, the vehicle must be able to compute a trajectory, a safe path to go from one point to another.
 
-#### Supplement
+#### Supplementary Material
 ##### [IMU](https://en.wikipedia.org/wiki/Inertial_measurement_unit)
 Inertial Measurement Unit(IMU) is an electronic device that measures and reports a body's specific force, angular rate, and sometimes the magnetic field surrounding the body, using a combination of [accelerometers](https://en.wikipedia.org/wiki/Accelerometer)(a device that measures proper acceleration) and [gyroscopes](https://en.wikipedia.org/wiki/Gyroscope)(a device used for measuring or maintaining orientation and angular velocity), sometimes also magnetometers.   
 
@@ -39,15 +39,48 @@ Simultaneous Localization And Mapping(SLAM) is often used in robotic mapping and
 ## 1.2 Energetics and System Design
 ### Basic Mechanics
 A quad rotor has 4 rotors that support the vehicle's weight. Each rotor spins and generates the thrust. The diagonal rotors run spin in the same direction.
-> Why don't all the rotors of a quadrator spin in the same direction?
-> Spinning all rotors in the same direction will cause the robot to constantly rotate. 
+> Q: Why don't all the rotors of a quadrator spin in the same direction?
+> A: Spinning all rotors in the same direction will cause the robot to constantly rotate. 
 
-### Control
+#### Rotor Physics
+![Rotor Physics](./img/w1/RotorPhysics)
 
-### Design considerations
+#### Acceleration
+![Acceleration](./img/w1/Acceleration)
 
-### Agility
+### Dynamics and 1-D Linear Control
+#### Dynamical Systems - Supplementary Material
+> Q: What is **Dynamical System**?   
+> A: A dynamical system is a system in which the effects of input actions **DO NOT immediately** affect the system.  
 
-### Component selection
+Every dynamcial system is defined by its state.
+> Q: What is **state**?   
+> A: State is a collection of variables that completely **characterizes** the motion of a system.   
+- `x(t)` gives the values of these states over time  
 
-### Effects of size
+#### Control of height
+**GOAL**: Drive the quadrotor to a desired vertical position either up or down!
+**Solution**:
+- use `x` to measure the vertical displacement
+![1000]()
+
+> Q: What **input** drives the robot to the desired position?   
+> A: 
+
+#### Second Order Linear System
+![0235]()
+
+#### [Rates of Convergence](https://www.coursera.org/learn/robotics-flight/lecture/32DXG/supplementary-material-rates-of-convergence) - Supplementary Material
+We wanted to determine the appropriate input that will cause the error between the desired state and the actual state of a dynamical system to eventually reach 0. But how **fast** do we want this error to go to 0?   
+Throughout this course we will use a **PD or PID** controller as our method for controlling a quadrotor.
+![supplementary material: rates of convergence, 0135]()
+
+### Design Considerations
+In reality, the motor thrusts are **limited**, because the motors have a limited capacity. The trust that the motor can produce is limited by the **peak torque**.
+![0200]()
+
+### Agility and Maneuverability
+
+### Component Selection
+
+### Effects of Size
