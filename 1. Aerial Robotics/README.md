@@ -82,5 +82,59 @@ In reality, the motor thrusts are **limited**, because the motors have a limited
 ### Agility and Maneuverability
 
 ### Component Selection
+We have to pay particular attention to the weights of the hardware, because eventually the robot will have to carry these at it flies.
+
+#### Control Architecture
+![0115]()
+- low level processor: drive the motors and the propellers;
+- high level processor: e.g. Intel to communicates with a lower level processor and commands a low level processor to drive the vehicle;
+- (optional) radio controller: in case you want to control of the vehicle;
+- sensors: laser scanner, cameras;
 
 ### Effects of Size
+The platform becomes larger and becomes heavier, therefore **the thrust to weight ratio** changes. The maximum amount of thrust the robot exert, the maximum moment it can generate.
+
+![0300]()
+![0435]()
+
+
+# 2. Geometry and Mechanics
+## 2.1 Quadrotor Kinematics
+### Rigid Body Transformations
+#### Reference Frames
+We associate with any position and orientation a **reference frame**.
+![0123]()
+
+We can write any vector as a **linear combination** of the basis vectors in either frame.   
+$$v = v_1 a_1 + v_2 a_2 + v_3 a_3$$   
+
+![0455]()
+![0808]()
+
+Rigid body transforms satisfy 2 important properties:
+- the map preserves **lengths**;
+- **cross products** are preserved by the induced map.
+
+#### Note
+Rigid body displacements and rigid body transformations are used **interchangeably*. 
+
+1. **Transformations** generally used to describe relationship between **reference frames** attached to different rigid bodies.
+2. **Displacements** describe relationships between **two positions** and **orientation** of a frame attached to a displaced rigid body.
+
+#### Rotation Matrix
+![1125]()
+
+Properties of a Rotation Matrix
+- Orthogonal;
+- Determinant is +1;
+- Closed under multiplication;
+- The inverse of a rotation matrix is also a rotation matrix.
+![1208]()
+![1529]()
+
+##### Special Orthogonal Matrices
+![0130]()
+
+
+## 2.2 Quddrotor Dynamics 
+
