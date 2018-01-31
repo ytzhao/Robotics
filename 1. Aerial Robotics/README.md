@@ -154,6 +154,14 @@ Euler shows 3 coordinates to describe a general rotation. The key point of Euler
 ![1025]()
 ![1403]()
 
+#### Angular Velocity
+![0125]()
+![0245]()
+![0505]()
+![0608]()
+
+
+
 #### Supplementary
 ##### Eigenvalues and Eigenvectors of Matrices
 - Determinant: is a scalar property of square matrices, donated $$det(A)$$ or $$|A|$$.
@@ -195,17 +203,42 @@ $$u x v = \hat(u)v$$
 
 ##### Quaternions
 Quaternion:   
-$$q = (q_0, q_1, q_2, q_3)$$   
+$$q = (q_0, q_1, q_2, q_3) = (q_0, \textbf{q})$$   
 which can be interpreted as a **constant + vector**.   
 
 ###### Operations with quaternion
 ![0048]()
-- Addition/subtraction
+- addition/subtraction
 $$p \pm q = (p_0 \pm q_0, \textbf{p} \pm \textbf{q})$$  
-- Multiplication
+- multiplication
 $$pq = (p_0q_0 - \textbf{p}^T\textbf{q}, p_0\textbf{q} + q_0\textbf{p} + \textbf{p} x \textbf{q})$$
-- Inverse
-$$q^(-1) = (q_0, -\textbf{q})$$  
+- inverse
+$$q^(-1) = (q_0, -\textbf{q})$$   
+
+###### Axis-Angle Representation to Quaternion
+For axis-angle representation of rotations, we have:
+- angle of rotation: $$\phi$$
+- axis of rotation: $$\textbf{u}$$
+
+The equivalent quaternion is:    
+$$q = (cos(\phi/2), u_1sin(\phi/2), u_2sin(\phi/2), u_3sin(\phi/2))$$   
+
+###### Quaternions to Axis-Angle Representation
+Given a quaternion:
+$$q = (q_0, q_1, q_2, q_3)$$   
+
+The equivalent axis-angle representation is:   
+- angle of rotation: $$2cos^(-1)(q_0)$$
+- axis of rotation: $$\textbf{u_2} = \begin{bmatrix} q_1/(sqrt(1-q_0^2)) \\ q_2/(sqrt(1-q_0^2)) \\ q_3/(sqrt(1-q_0^2)) \end{bmatrix}$$
+
+###### Vector Rotation with Quaternions
+> Q: How to use these quaternions? e.g.: To rotate a vector $$\textbf{p}$$ in $$R^3$$ by the quaternion q.
+
+- 1. Define quaternion:    
+$$p = (0, \textbf{p})$$   
+- 2.  
+
+##### Matrix Derivative
 
 
 ## 2.2 Quddrotor Dynamics 
